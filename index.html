@@ -3,23 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio [Nama Anda]</title>
+    
+    <!-- Meta Tags SEO -->
+    <title>John Doe - Web Developer & Designer</title>
+    <meta name="description" content="Portofolio John Doe - Web Developer profesional dengan spesialisasi dalam pembuatan website modern dan aplikasi web progresif">
+    <meta name="keywords" content="web developer, portofolio, web design, programming, frontend">
+    <meta name="author" content="John Doe">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content="John Doe - Web Developer Profesional">
+    <meta property="og:description" content="Portofolio John Doe - Spesialis pengembangan website modern">
+    <meta property="og:image" content="https://example.com/profil.jpg">
+    <meta property="og:url" content="https://example.com">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="John Doe - Web Developer Profesional">
+    <meta name="twitter:description" content="Portofolio John Doe - Spesialis pengembangan website modern">
+    <meta name="twitter:image" content="https://example.com/profil.jpg">
+
     <style>
         :root {
             --bg-color: #ffffff;
-            --text-color: #333333;
-            --primary-color: #007bff;
-            --secondary-color: #6c757d;
-            --card-bg: #ffffff;
-            --nav-bg: #f8f9fa;
+            --text-color: #1a1a1a;
+            --primary-color: #2563eb;
+            --secondary-color: #4b5563;
+            --card-bg: #f3f4f6;
+            --nav-bg: #ffffff;
             --transition: all 0.3s ease;
         }
 
         [data-theme="dark"] {
             --bg-color: #1a1a1a;
             --text-color: #ffffff;
-            --primary-color: #0d6efd;
-            --secondary-color: #adb5bd;
+            --primary-color: #3b82f6;
+            --secondary-color: #9ca3af;
             --card-bg: #2d2d2d;
             --nav-bg: #2d2d2d;
         }
@@ -28,7 +47,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', sans-serif;
+            font-family: 'Segoe UI', system-ui, sans-serif;
         }
 
         body {
@@ -44,8 +63,8 @@
             padding: 1rem;
             position: sticky;
             top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
         .nav-container {
@@ -67,10 +86,13 @@
             text-decoration: none;
             font-weight: 500;
             transition: var(--transition);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
         }
 
         .nav-links a:hover {
-            color: var(--primary-color);
+            background-color: var(--primary-color);
+            color: white;
         }
 
         /* Header */
@@ -82,11 +104,12 @@
         }
 
         .profile-img {
-            width: 150px;
-            height: 150px;
+            width: 200px;
+            height: 200px;
             border-radius: 50%;
             margin-bottom: 1.5rem;
-            border: 3px solid var(--primary-color);
+            border: 4px solid var(--primary-color);
+            object-fit: cover;
         }
 
         .intro {
@@ -94,9 +117,10 @@
             color: var(--secondary-color);
             margin: 1rem auto;
             max-width: 600px;
+            line-height: 1.8;
         }
 
-        /* Projects */
+        /* Projects Section */
         .projects {
             padding: 4rem 2rem;
             max-width: 1200px;
@@ -113,8 +137,8 @@
         .project-card {
             background: var(--card-bg);
             padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             transition: var(--transition);
         }
 
@@ -126,11 +150,11 @@
             width: 100%;
             height: 200px;
             object-fit: cover;
-            border-radius: 4px;
+            border-radius: 8px;
             margin-bottom: 1rem;
         }
 
-        /* Contact */
+        /* Contact Section */
         .contact {
             padding: 4rem 2rem;
             max-width: 600px;
@@ -145,12 +169,18 @@
         }
 
         input, textarea {
-            padding: 0.8rem;
-            border: 1px solid var(--secondary-color);
-            border-radius: 4px;
-            background-color: var(--card-bg);
+            padding: 1rem;
+            border: 2px solid var(--secondary-color);
+            border-radius: 8px;
+            background-color: var(--bg-color);
             color: var(--text-color);
             transition: var(--transition);
+            font-size: 1rem;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
         }
 
         button {
@@ -158,13 +188,16 @@
             color: white;
             padding: 1rem;
             border: none;
-            border-radius: 4px;
+            border-radius: 8px;
             cursor: pointer;
             transition: var(--transition);
+            font-size: 1rem;
+            font-weight: 600;
         }
 
         button:hover {
             opacity: 0.9;
+            transform: translateY(-2px);
         }
 
         /* Social Media */
@@ -172,17 +205,31 @@
             display: flex;
             justify-content: center;
             gap: 2rem;
-            margin: 3rem 0;
+            margin: 4rem 0;
+            flex-wrap: wrap;
         }
 
         .social-link {
-            font-size: 1.5rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
             color: var(--text-color);
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
             transition: var(--transition);
+            background-color: var(--card-bg);
         }
 
         .social-link:hover {
-            color: var(--primary-color);
+            transform: translateY(-3px);
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .social-icon {
+            width: 24px;
+            height: 24px;
         }
 
         /* Dark Mode Toggle */
@@ -193,10 +240,14 @@
             background: var(--primary-color);
             color: white;
             border: none;
-            padding: 10px 15px;
-            border-radius: 25px;
+            padding: 12px 18px;
+            border-radius: 50px;
             cursor: pointer;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
         }
 
         /* Responsive Design */
@@ -214,13 +265,18 @@
             header {
                 padding: 2rem 1rem;
             }
+            
+            .profile-img {
+                width: 150px;
+                height: 150px;
+            }
         }
     </style>
 </head>
 <body>
     <nav>
         <div class="nav-container">
-            <h1>[Nama Anda]</h1>
+            <h1 aria-label="Portfolio John Doe">John Doe</h1>
             <ul class="nav-links">
                 <li><a href="#home">Beranda</a></li>
                 <li><a href="#projects">Projek</a></li>
@@ -230,71 +286,82 @@
     </nav>
 
     <header id="home">
-        <img src="profil.jpg" alt="Foto Profil" class="profile-img">
-        <h2>Halo, Saya [Nama Anda]</h2>
+        <img src="profil.jpg" alt="Foto Profil John Doe" class="profile-img" loading="lazy">
+        <h2>Halo, Saya John Doe</h2>
         <p class="intro">
-            Saya seorang Web Developer dengan pengalaman 2 tahun dalam membangun website modern 
-            dan aplikasi web responsif. Senang berkolaborasi dalam projek kreatif!
+            Web Developer profesional dengan 3+ tahun pengalaman dalam membangun aplikasi web modern. 
+            Spesialisasi dalam React.js dan Node.js dengan fokus pada performa dan user experience.
         </p>
     </header>
 
-    <section class="projects" id="projects">
-        <h2>Projek Terbaru</h2>
-        <div class="project-grid">
-            <div class="project-card">
-                <img src="project1.jpg" alt="Projek 1" class="project-img">
-                <h3>Aplikasi Task Manager</h3>
-                <p>Aplikasi manajemen tugas dengan fitur reminder dan kolaborasi tim</p>
+    <main>
+        <section class="projects" id="projects">
+            <h2>Projek Terbaru</h2>
+            <div class="project-grid">
+                <article class="project-card">
+                    <img src="project1.jpg" alt="Tampilan Dashboard Aplikasi Task Manager" class="project-img" loading="lazy">
+                    <h3>Task Management App</h3>
+                    <p>Aplikasi manajemen tugas kolaboratif dengan fitur real-time updates</p>
+                </article>
+                
+                <article class="project-card">
+                    <img src="project2.jpg" alt="Antarmuka E-commerce Platform" class="project-img" loading="lazy">
+                    <h3>E-commerce Platform</h3>
+                    <p>Platform belanja online dengan integrasi payment gateway</p>
+                </article>
             </div>
-            
-            <div class="project-card">
-                <img src="project2.jpg" alt="Projek 2" class="project-img">
-                <h3>E-commerce Platform</h3>
-                <p>Platform belanja online dengan sistem pembayaran terintegrasi</p>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="contact" id="contact">
-        <h2>Hubungi Saya</h2>
-        <form class="contact-form">
-            <input type="text" placeholder="Nama Anda" required>
-            <input type="email" placeholder="Alamat Email" required>
-            <textarea rows="5" placeholder="Pesan Anda" required></textarea>
-            <button type="submit">Kirim Pesan</button>
-        </form>
-    </section>
+        <section class="contact" id="contact">
+            <h2>Hubungi Saya</h2>
+            <form class="contact-form" action="https://formspree.io/f/{your-form-id}" method="POST">
+                <input type="text" name="name" placeholder="Nama Lengkap" required>
+                <input type="email" name="email" placeholder="Alamat Email" required>
+                <textarea name="message" rows="5" placeholder="Pesan Anda" required></textarea>
+                <button type="submit">Kirim Pesan</button>
+            </form>
+        </section>
+    </main>
 
     <div class="social-links">
-        <a href="#" class="social-link">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm3 8h-1.35c-.538 0-.65.221-.65.778v1.222h2l-.209 2h-1.791v7h-3v-7h-2v-2h2v-2.308c0-1.769.931-2.692 3.029-2.692h1.971v3z"/>
+        <a href="https://github.com/johndoe" class="social-link" target="_blank" rel="noopener noreferrer">
+            <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.6.113.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
             </svg>
+            GitHub
         </a>
-        <a href="#" class="social-link">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2.917 16.083c-2.258 0-4.083-1.825-4.083-4.083s1.825-4.083 4.083-4.083c1.103 0 2.024.402 2.735 1.067l-1.107 1.068c-.304-.292-.834-.63-1.628-.63-1.394 0-2.531 1.155-2.531 2.579 0 1.424 1.138 2.579 2.531 2.579 1.616 0 2.224-1.162 2.316-1.762h-2.316v-1.4h3.855c.036.204.064.408.064.677.001 2.332-1.563 3.988-3.919 3.988zm9.917-3.5h-1.75v1.75h-1.167v-1.75h-1.75v-1.166h1.75v-1.75h1.167v1.75h1.75v1.166z"/>
+        <a href="https://linkedin.com/in/johndoe" class="social-link" target="_blank" rel="noopener noreferrer">
+            <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 0H5a5 5 0 00-5 5v14a5 5 0 005 5h14a5 5 0 005-5V5a5 5 0 00-5-5zM8 19H5V8h3v11zM6.5 6.732c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zM20 19h-3v-5.604c0-3.368-4-3.113-4 0V19h-3V8h3v1.765c1.396-2.586 7-2.777 7 2.476V19z"/>
             </svg>
+            LinkedIn
         </a>
-        <a href="#" class="social-link">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2.917 16.083c-2.258 0-4.083-1.825-4.083-4.083s1.825-4.083 4.083-4.083c1.103 0 2.024.402 2.735 1.067l-1.107 1.068c-.304-.292-.834-.63-1.628-.63-1.394 0-2.531 1.155-2.531 2.579 0 1.424 1.138 2.579 2.531 2.579 1.616 0 2.224-1.162 2.316-1.762h-2.316v-1.4h3.855c.036.204.064.408.064.677.001 2.332-1.563 3.988-3.919 3.988zm9.917-3.5h-1.75v1.75h-1.167v-1.75h-1.75v-1.166h1.75v-1.75h1.167v1.75h1.75v1.166z"/>
+        <a href="https://twitter.com/johndoe" class="social-link" target="_blank" rel="noopener noreferrer">
+            <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
             </svg>
+            Twitter
         </a>
     </div>
 
-    <button class="theme-toggle" onclick="toggleTheme()">🌓 Toggle Mode</button>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+        <span class="theme-icon">🌓</span> 
+        <span class="theme-text">Mode Gelap</span>
+    </button>
 
     <script>
         function toggleTheme() {
             const body = document.body;
+            const themeText = document.querySelector('.theme-text');
             const currentTheme = body.getAttribute('data-theme');
             
             if(currentTheme === 'dark') {
                 body.removeAttribute('data-theme');
+                themeText.textContent = 'Mode Gelap';
                 localStorage.setItem('theme', 'light');
             } else {
                 body.setAttribute('data-theme', 'dark');
+                themeText.textContent = 'Mode Terang';
                 localStorage.setItem('theme', 'dark');
             }
         }
@@ -303,6 +370,7 @@
         const savedTheme = localStorage.getItem('theme');
         if(savedTheme === 'dark') {
             document.body.setAttribute('data-theme', 'dark');
+            document.querySelector('.theme-text').textContent = 'Mode Terang';
         }
     </script>
 </body>
