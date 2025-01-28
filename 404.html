@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Lato&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>404 - Halaman Tidak Ditemukan</title>
@@ -8,8 +9,8 @@
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #fff;
+            font-family: 'Playfair Display', serif;
+            background: #F5E6D3 url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><text x="50%" y="50%" font-family="cursive" font-size="20" fill="%23E0D5C7" opacity="0.3" text-anchor="middle">☕</text></svg>');
             height: 100vh;
             display: flex;
             align-items: center;
@@ -19,51 +20,80 @@
 
         .container {
             max-width: 600px;
-            padding: 20px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            position: relative;
         }
 
-        .dino-image {
-            width: 300px;
-            height: 300px;
-            margin-bottom: 30px;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><path fill="%23666" d="M50 150h20v20H50zM80 150h20v20H80zM110 150h20v20h-20zM140 130h20v40h-20z"/><rect fill="%23666" x="30" y="130" width="20" height="20"/><rect fill="%23666" x="170" y="130" width="20" height="20"/></svg>');
+        .book-illustration {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 30px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="%236F4E37" d="M20 85V15l60-5v75L20 85zm5-67.9l50 4.1v61.8l-50-4.1V17.1z"/><path fill="%238B4513" d="M25 20l50 4v55l-50-4z"/><circle cx="45" cy="50" r="2" fill="%23fff"/><circle cx="55" cy="50" r="2" fill="%23fff"/><path fill="%236F4E37" d="M75 30a5 5 0 11-10 0 5 5 0 0110 0z"/></svg>');
             background-repeat: no-repeat;
             background-position: center;
         }
 
         h1 {
-            color: #666;
-            font-size: 2.5em;
+            color: #6F4E37;
+            font-size: 2.8em;
             margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
         }
 
         p {
-            color: #999;
+            color: #8B4513;
             font-size: 1.2em;
+            line-height: 1.6;
             margin-bottom: 30px;
+            font-family: 'Lato', sans-serif;
         }
 
         .home-button {
-            background: #4285f4;
-            color: white;
-            border: none;
+            background: #6F4E37;
+            color: #FFF;
             padding: 15px 40px;
-            border-radius: 4px;
+            border-radius: 25px;
             font-size: 1.1em;
             cursor: pointer;
-            transition: background 0.3s ease;
+            transition: all 0.3s ease;
             text-decoration: none;
             display: inline-block;
+            border: 2px solid #8B4513;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .home-button:before {
+            content: "☕";
+            position: absolute;
+            left: -20px;
+            transition: all 0.3s ease;
+            opacity: 0;
         }
 
         .home-button:hover {
-            background: #2b6cd4;
+            background: #8B4513;
+            padding-left: 50px;
+            transform: translateY(-2px);
+        }
+
+        .home-button:hover:before {
+            left: 15px;
+            opacity: 1;
         }
 
         @media (max-width: 600px) {
-            .dino-image {
-                width: 200px;
-                height: 200px;
+            .container {
+                margin: 20px;
+                padding: 20px;
+            }
+            
+            .book-illustration {
+                width: 150px;
+                height: 150px;
             }
             
             h1 {
@@ -74,9 +104,9 @@
 </head>
 <body>
     <div class="container">
-        <div class="dino-image"></div>
-        <h1>404 - Halaman Tidak Ditemukan</h1>
-        <p>Halaman yang Anda coba akses mungkin telah dihapus, namanya diganti, atau sedang tidak tersedia sementara.</p>
+        <div class="book-illustration"></div>
+        <h1>404 - Halaman Hilang</h1>
+        <p>Sepertinya halaman yang Anda cari sedang bersembunyi di antara halaman buku<br>sambil menikmati secangkir kopi hangat...</p>
         <a href="/" class="home-button">Kembali ke Beranda</a>
     </div>
 </body>
