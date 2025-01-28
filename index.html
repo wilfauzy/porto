@@ -3,33 +3,189 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio Saya</title>
+    <title>Portofolio [Nama Anda]</title>
     <style>
         :root {
             --bg-color: #ffffff;
             --text-color: #333333;
             --primary-color: #007bff;
+            --secondary-color: #6c757d;
             --card-bg: #ffffff;
-            --nav-bg: #444444;
-            --input-bg: #f8f9fa;
+            --nav-bg: #f8f9fa;
+            --transition: all 0.3s ease;
         }
 
         [data-theme="dark"] {
             --bg-color: #1a1a1a;
             --text-color: #ffffff;
             --primary-color: #0d6efd;
+            --secondary-color: #adb5bd;
             --card-bg: #2d2d2d;
-            --nav-bg: #1a1a1a;
-            --input-bg: #3d3d3d;
+            --nav-bg: #2d2d2d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
         }
 
         body {
             background-color: var(--bg-color);
             color: var(--text-color);
-            transition: all 0.3s ease;
+            line-height: 1.6;
+            transition: var(--transition);
         }
 
-        /* Tambahkan ini di bagian CSS */
+        /* Navigation */
+        nav {
+            background-color: var(--nav-bg);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 4rem 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 1.5rem;
+            border: 3px solid var(--primary-color);
+        }
+
+        .intro {
+            font-size: 1.1rem;
+            color: var(--secondary-color);
+            margin: 1rem auto;
+            max-width: 600px;
+        }
+
+        /* Projects */
+        .projects {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        /* Contact */
+        .contact {
+            padding: 4rem 2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        input, textarea {
+            padding: 0.8rem;
+            border: 1px solid var(--secondary-color);
+            border-radius: 4px;
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            transition: var(--transition);
+        }
+
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        /* Social Media */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .social-link {
+            font-size: 1.5rem;
+            color: var(--text-color);
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            color: var(--primary-color);
+        }
+
+        /* Dark Mode Toggle */
         .theme-toggle {
             position: fixed;
             bottom: 20px;
@@ -43,33 +199,90 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
 
-        nav {
-            background-color: var(--nav-bg);
-        }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
 
-        .project-card {
-            background: var(--card-bg);
-        }
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
 
-        .skills {
-            background-color: var(--card-bg);
+            header {
+                padding: 2rem 1rem;
+            }
         }
-
-        .contact-form {
-            background-color: var(--input-bg);
-        }
-
-        input, textarea {
-            background-color: var(--input-bg);
-            color: var(--text-color);
-            border: 1px solid var(--text-color);
-        }
-
-        /* CSS sebelumnya yang lain tetap dipertahankan */
     </style>
 </head>
 <body>
-    <!-- Tambahkan tombol toggle di sebelum </body> -->
+    <nav>
+        <div class="nav-container">
+            <h1>[Nama Anda]</h1>
+            <ul class="nav-links">
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#projects">Projek</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header id="home">
+        <img src="profil.jpg" alt="Foto Profil" class="profile-img">
+        <h2>Halo, Saya [Nama Anda]</h2>
+        <p class="intro">
+            Saya seorang Web Developer dengan pengalaman 2 tahun dalam membangun website modern 
+            dan aplikasi web responsif. Senang berkolaborasi dalam projek kreatif!
+        </p>
+    </header>
+
+    <section class="projects" id="projects">
+        <h2>Projek Terbaru</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <img src="project1.jpg" alt="Projek 1" class="project-img">
+                <h3>Aplikasi Task Manager</h3>
+                <p>Aplikasi manajemen tugas dengan fitur reminder dan kolaborasi tim</p>
+            </div>
+            
+            <div class="project-card">
+                <img src="project2.jpg" alt="Projek 2" class="project-img">
+                <h3>E-commerce Platform</h3>
+                <p>Platform belanja online dengan sistem pembayaran terintegrasi</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <h2>Hubungi Saya</h2>
+        <form class="contact-form">
+            <input type="text" placeholder="Nama Anda" required>
+            <input type="email" placeholder="Alamat Email" required>
+            <textarea rows="5" placeholder="Pesan Anda" required></textarea>
+            <button type="submit">Kirim Pesan</button>
+        </form>
+    </section>
+
+    <div class="social-links">
+        <a href="#" class="social-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm3 8h-1.35c-.538 0-.65.221-.65.778v1.222h2l-.209 2h-1.791v7h-3v-7h-2v-2h2v-2.308c0-1.769.931-2.692 3.029-2.692h1.971v3z"/>
+            </svg>
+        </a>
+        <a href="#" class="social-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2.917 16.083c-2.258 0-4.083-1.825-4.083-4.083s1.825-4.083 4.083-4.083c1.103 0 2.024.402 2.735 1.067l-1.107 1.068c-.304-.292-.834-.63-1.628-.63-1.394 0-2.531 1.155-2.531 2.579 0 1.424 1.138 2.579 2.531 2.579 1.616 0 2.224-1.162 2.316-1.762h-2.316v-1.4h3.855c.036.204.064.408.064.677.001 2.332-1.563 3.988-3.919 3.988zm9.917-3.5h-1.75v1.75h-1.167v-1.75h-1.75v-1.166h1.75v-1.75h1.167v1.75h1.75v1.166z"/>
+            </svg>
+        </a>
+        <a href="#" class="social-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2.917 16.083c-2.258 0-4.083-1.825-4.083-4.083s1.825-4.083 4.083-4.083c1.103 0 2.024.402 2.735 1.067l-1.107 1.068c-.304-.292-.834-.63-1.628-.63-1.394 0-2.531 1.155-2.531 2.579 0 1.424 1.138 2.579 2.531 2.579 1.616 0 2.224-1.162 2.316-1.762h-2.316v-1.4h3.855c.036.204.064.408.064.677.001 2.332-1.563 3.988-3.919 3.988zm9.917-3.5h-1.75v1.75h-1.167v-1.75h-1.75v-1.166h1.75v-1.75h1.167v1.75h1.75v1.166z"/>
+            </svg>
+        </a>
+    </div>
+
     <button class="theme-toggle" onclick="toggleTheme()">🌓 Toggle Mode</button>
 
     <script>
@@ -86,7 +299,7 @@
             }
         }
 
-        // Cek preferensi pengguna dari localStorage
+        // Load saved theme
         const savedTheme = localStorage.getItem('theme');
         if(savedTheme === 'dark') {
             document.body.setAttribute('data-theme', 'dark');
