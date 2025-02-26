@@ -1,113 +1,127 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Lato&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 - Halaman Tidak Ditemukan</title>
+    <title>404 - Crypto Page Not Found</title>
     <style>
-        body {
+        :root {
+            --primary: #00ff88;
+            --background: #0a0a0a;
+            --surface: #1a1a1a;
+            --text: #ffffff;
+        }
+
+        * {
             margin: 0;
             padding: 0;
-            font-family: 'Playfair Display', serif;
-            background: #F5E6D3 url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><text x="50%" y="50%" font-family="cursive" font-size="20" fill="%23E0D5C7" opacity="0.3" text-anchor="middle">☕</text></svg>');
-            height: 100vh;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: var(--background);
+            color: var(--text);
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            text-align: center;
-        }
-
-        .container {
-            max-width: 600px;
-            padding: 40px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            position: relative;
-        }
-
-        .book-illustration {
-            width: 200px;
-            height: 200px;
-            margin: 0 auto 30px;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="%236F4E37" d="M20 85V15l60-5v75L20 85zm5-67.9l50 4.1v61.8l-50-4.1V17.1z"/><path fill="%238B4513" d="M25 20l50 4v55l-50-4z"/><circle cx="45" cy="50" r="2" fill="%23fff"/><circle cx="55" cy="50" r="2" fill="%23fff"/><path fill="%236F4E37" d="M75 30a5 5 0 11-10 0 5 5 0 0110 0z"/></svg>');
-            background-repeat: no-repeat;
-            background-position: center;
-        }
-
-        h1 {
-            color: #6F4E37;
-            font-size: 2.8em;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-        }
-
-        p {
-            color: #8B4513;
-            font-size: 1.2em;
-            line-height: 1.6;
-            margin-bottom: 30px;
-            font-family: 'Lato', sans-serif;
-        }
-
-        .home-button {
-            background: #6F4E37;
-            color: #FFF;
-            padding: 15px 40px;
-            border-radius: 25px;
-            font-size: 1.1em;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-            border: 2px solid #8B4513;
-            position: relative;
             overflow: hidden;
         }
 
-        .home-button:before {
-            content: "☕";
-            position: absolute;
-            left: -20px;
-            transition: all 0.3s ease;
-            opacity: 0;
+        .container {
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
         }
 
-        .home-button:hover {
-            background: #8B4513;
-            padding-left: 50px;
+        .crypto-glitch {
+            font-size: 8rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--primary), #00b4d8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 2px 2px 4px rgba(0, 255, 136, 0.2);
+            position: relative;
+            animation: glitch 2s infinite;
+        }
+
+        @keyframes glitch {
+            0% { transform: translate(0) }
+            20% { transform: translate(-2px, 2px) }
+            40% { transform: translate(-2px, -2px) }
+            60% { transform: translate(2px, 2px) }
+            80% { transform: translate(2px, -2px) }
+            100% { transform: translate(0) }
+        }
+
+        .message {
+            font-size: 1.5rem;
+            margin: 2rem 0;
+            color: #888;
+        }
+
+        .back-button {
+            background: var(--surface);
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .back-button:hover {
+            background: var(--primary);
+            color: var(--background);
             transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 255, 136, 0.3);
         }
 
-        .home-button:hover:before {
-            left: 15px;
-            opacity: 1;
+        .crypto-pattern {
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: 
+                linear-gradient(45deg, transparent 48%, rgba(0, 255, 136, 0.1) 50%, transparent 52%),
+                linear-gradient(-45deg, transparent 48%, rgba(0, 255, 136, 0.1) 50%, transparent 52%);
+            background-size: 40px 40px;
+            opacity: 0.3;
+            animation: move 20s linear infinite;
         }
 
-        @media (max-width: 600px) {
-            .container {
-                margin: 20px;
-                padding: 20px;
+        @keyframes move {
+            0% { transform: translate(0, 0) }
+            100% { transform: translate(-50%, -50%) }
+        }
+
+        @media (max-width: 768px) {
+            .crypto-glitch {
+                font-size: 5rem;
             }
             
-            .book-illustration {
-                width: 150px;
-                height: 150px;
-            }
-            
-            h1 {
-                font-size: 2em;
+            .message {
+                font-size: 1.2rem;
             }
         }
     </style>
 </head>
 <body>
+    <div class="crypto-pattern"></div>
     <div class="container">
-        <div class="book-illustration"></div>
-        <h1>404 - Halaman Hilang</h1>
-        <p>Sepertinya halaman yang Anda cari sedang bersembunyi di antara halaman buku<br>sambil menikmati secangkir kopi hangat...</p>
-        <a href="/" class="home-button">Kembali ke Beranda</a>
+        <div class="crypto-glitch">404</div>
+        <p class="message">Transaction not found in blockchain</p>
+        <a href="/" class="back-button">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M3 12L21 12M3 12L9 18M3 12L9 6" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            Back to Wallet
+        </a>
     </div>
 </body>
 </html>
