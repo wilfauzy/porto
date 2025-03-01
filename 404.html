@@ -1,113 +1,325 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Lato&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 - Halaman Tidak Ditemukan</title>
+    <title>404 - Halaman Tidak Ditemukan | wildan.fauzy.eu.org</title>
     <style>
-        body {
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+        * {
             margin: 0;
             padding: 0;
-            font-family: 'Playfair Display', serif;
-            background: #F5E6D3 url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><text x="50%" y="50%" font-family="cursive" font-size="20" fill="%23E0D5C7" opacity="0.3" text-anchor="middle">☕</text></svg>');
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Press Start 2P', cursive;
+            background-color: #000;
+            color: #fff;
+            overflow: hidden;
             height: 100vh;
             display: flex;
-            align-items: center;
+            flex-direction: column;
             justify-content: center;
+            align-items: center;
             text-align: center;
+            position: relative;
+        }
+
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .star {
+            position: absolute;
+            background-color: #fff;
+            width: 2px;
+            height: 2px;
+            border-radius: 50%;
+            animation: twinkle 1s infinite;
+        }
+
+        @keyframes twinkle {
+            0% { opacity: 0.3; }
+            50% { opacity: 1; }
+            100% { opacity: 0.3; }
         }
 
         .container {
-            max-width: 600px;
-            padding: 40px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1;
+            padding: 20px;
+            max-width: 90%;
+        }
+
+        .pixel-art {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .spaceship {
+            position: relative;
+            width: 80px;
+            height: 60px;
+            margin-top: 20px;
+            animation: hover 2s infinite ease-in-out;
+        }
+
+        @keyframes hover {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+
+        .ship-body {
+            width: 60px;
+            height: 20px;
+            background-color: #5f5fff;
+            margin: 0 auto;
             position: relative;
         }
 
-        .book-illustration {
-            width: 200px;
-            height: 200px;
-            margin: 0 auto 30px;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="%236F4E37" d="M20 85V15l60-5v75L20 85zm5-67.9l50 4.1v61.8l-50-4.1V17.1z"/><path fill="%238B4513" d="M25 20l50 4v55l-50-4z"/><circle cx="45" cy="50" r="2" fill="%23fff"/><circle cx="55" cy="50" r="2" fill="%23fff"/><path fill="%236F4E37" d="M75 30a5 5 0 11-10 0 5 5 0 0110 0z"/></svg>');
-            background-repeat: no-repeat;
-            background-position: center;
+        .ship-top {
+            width: 40px;
+            height: 10px;
+            background-color: #5f5fff;
+            margin: 0 auto;
+            border-radius: 50% 50% 0 0;
         }
 
-        h1 {
-            color: #6F4E37;
-            font-size: 2.8em;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        .ship-window {
+            width: 12px;
+            height: 12px;
+            background-color: #00ffff;
+            border-radius: 50%;
+            position: absolute;
+            top: 5px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: window-glow 1.5s infinite;
         }
 
-        p {
-            color: #8B4513;
-            font-size: 1.2em;
-            line-height: 1.6;
+        @keyframes window-glow {
+            0% { box-shadow: 0 0 5px #00ffff; }
+            50% { box-shadow: 0 0 15px #00ffff; }
+            100% { box-shadow: 0 0 5px #00ffff; }
+        }
+
+        .ship-thrust {
+            width: 20px;
+            height: 10px;
+            background-color: #ff5f5f;
+            margin: 0 auto;
+            position: relative;
+            animation: thrust 0.3s infinite;
+        }
+
+        @keyframes thrust {
+            0% { height: 10px; background-color: #ff5f5f; }
+            50% { height: 15px; background-color: #ffff00; }
+            100% { height: 10px; background-color: #ff5f5f; }
+        }
+
+        .error-code {
+            font-size: 3rem;
+            color: #ff5f5f;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px #ff5f5f;
+            animation: error-blink 1.5s infinite;
+        }
+
+        @keyframes error-blink {
+            0% { opacity: 1; }
+            10% { opacity: 0.8; }
+            12% { opacity: 1; }
+            20% { opacity: 1; }
+            22% { opacity: 0.8; }
+            24% { opacity: 1; }
+            100% { opacity: 1; }
+        }
+
+        .error-text {
+            font-size: 1.2rem;
+            color: #5f5fff;
             margin-bottom: 30px;
-            font-family: 'Lato', sans-serif;
+            line-height: 1.5;
+            text-shadow: 0 0 5px #5f5fff;
         }
 
-        .home-button {
-            background: #6F4E37;
-            color: #FFF;
-            padding: 15px 40px;
-            border-radius: 25px;
-            font-size: 1.1em;
+        .home-btn {
+            background-color: #5f5fff;
+            color: #fff;
+            border: none;
+            padding: 15px 20px;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 1rem;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.3s;
             text-decoration: none;
             display: inline-block;
-            border: 2px solid #8B4513;
-            position: relative;
-            overflow: hidden;
+            margin-top: 20px;
+            box-shadow: 0 0 10px #5f5fff;
         }
 
-        .home-button:before {
-            content: "☕";
-            position: absolute;
-            left: -20px;
-            transition: all 0.3s ease;
-            opacity: 0;
+        .home-btn:hover {
+            background-color: #ff5f5f;
+            box-shadow: 0 0 15px #ff5f5f;
+            transform: scale(1.05);
         }
 
-        .home-button:hover {
-            background: #8B4513;
-            padding-left: 50px;
-            transform: translateY(-2px);
+        .blink {
+            animation: blink-animation 1s steps(2, start) infinite;
         }
 
-        .home-button:hover:before {
-            left: 15px;
-            opacity: 1;
+        @keyframes blink-animation {
+            to {
+                visibility: hidden;
+            }
         }
 
-        @media (max-width: 600px) {
-            .container {
-                margin: 20px;
-                padding: 20px;
+        /* Responsiveness */
+        @media (max-width: 768px) {
+            .error-code {
+                font-size: 2.5rem;
             }
             
-            .book-illustration {
-                width: 150px;
-                height: 150px;
+            .error-text {
+                font-size: 1rem;
             }
             
-            h1 {
-                font-size: 2em;
+            .spaceship {
+                width: 60px;
+                height: 45px;
+            }
+            
+            .ship-body {
+                width: 45px;
+                height: 15px;
+            }
+            
+            .ship-top {
+                width: 30px;
+                height: 8px;
+            }
+            
+            .ship-window {
+                width: 10px;
+                height: 10px;
+            }
+            
+            .ship-thrust {
+                width: 15px;
+                height: 8px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .error-code {
+                font-size: 2rem;
+            }
+            
+            .error-text {
+                font-size: 0.8rem;
+            }
+            
+            .home-btn {
+                padding: 10px 15px;
+                font-size: 0.8rem;
+            }
+            
+            .spaceship {
+                width: 50px;
+                height: 40px;
+            }
+            
+            .ship-body {
+                width: 40px;
+                height: 14px;
+            }
+            
+            .ship-top {
+                width: 26px;
+                height: 7px;
+            }
+            
+            .ship-window {
+                width: 8px;
+                height: 8px;
+                top: 4px;
+            }
+            
+            .ship-thrust {
+                width: 12px;
+                height: 7px;
             }
         }
     </style>
 </head>
 <body>
+    <div class="stars" id="stars"></div>
+    
     <div class="container">
-        <div class="book-illustration"></div>
-        <h1>404 - Halaman Hilang</h1>
-        <p>Sepertinya halaman yang Anda cari sedang bersembunyi di antara halaman buku<br>sambil menikmati secangkir kopi hangat...</p>
-        <a href="https://wildan.fauzy.eu.org/" class="home-button">Kembali ke Beranda</a>
+        <div class="pixel-art">
+            <div class="spaceship">
+                <div class="ship-top"></div>
+                <div class="ship-body">
+                    <div class="ship-window"></div>
+                </div>
+                <div class="ship-thrust"></div>
+            </div>
+        </div>
+        
+        <h1 class="error-code">404</h1>
+        <p class="error-text">HALAMAN TIDAK DITEMUKAN<span class="blink">_</span></p>
+        <p class="error-text">EXPLORASI GALAKSI LAIN</p>
+        
+        <a href="https://wildan.fauzy.eu.org" class="home-btn">KEMBALI KE BUMI</a>
     </div>
+
+    <script>
+        // Create stars
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            const starCount = Math.floor(window.innerWidth * window.innerHeight / 500);
+            
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                
+                // Random position
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+                
+                // Random size
+                const size = Math.random() * 2 + 1;
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                
+                // Random twinkle delay
+                star.style.animationDelay = `${Math.random() * 3}s`;
+                
+                starsContainer.appendChild(star);
+            }
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            createStars();
+            
+            // Recreate stars on window resize
+            window.addEventListener('resize', function() {
+                const starsContainer = document.getElementById('stars');
+                starsContainer.innerHTML = '';
+                createStars();
+            });
+        });
+    </script>
 </body>
 </html>
